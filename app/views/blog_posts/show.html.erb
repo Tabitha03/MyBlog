@@ -1,2 +1,35 @@
-<h1>BlogPosts#show</h1>
-<p>Find me in app/views/blog_posts/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+ <div class="panel panel-primary">
+ 	<div class="panel_heading">
+ 	 	<%= @blog_post.title %>
+
+ 	</div>
+
+ <div class="panel-body">
+ <p>by <%= @blog_post.author%></p>
+ <p>by <%= @blog_post.blog_entry%></p>
+
+	 </div>
+ </div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		comments
+	</div>
+</div class= "panel-body">
+	<%= render @comment %>
+	</div>
+	</div>
+<div class="panel pane-success">
+	<div class="panel-heading">
+		Make a Comment
+</div>
+<div class="panel-body"></div>
+	<%= render 'comments/form' %>
+
+	</div>
+	</div>
+	<%= link_to "Edit", edit_blog_post_path(@blog_post) %>
+	<%= link_to "Back", blog_post_path %>
+
+	</div>

@@ -1,8 +1,9 @@
-class BlogPostsController 
-	< ApplicationController_:only: []
-
+class BlogPostsController <ApplicationController
+  before_action :set_blog_post, only: [:show, :update, :destroy]
+	 
+  
   def index
-  	@blog_post = BlogPost.all
+  	@blog_posts = BlogPost.all
   end
 
   def new
@@ -20,7 +21,7 @@ class BlogPostsController
   	@blog_post = BlogPost.new(blog_post_params)
   	respond_to do|format|
   		if @blog_post.save
-  			format.html {redirect_to @ blog_post, notice: "Blog post was created successfully."} 
+  			format.html {redirect_to @blog_post, notice: "Blog post was created successfully."} 
   		else
   			format>html {render :new}
   		end
@@ -54,5 +55,5 @@ def set_blog_post
 	@blog_post = BlogPost.find(params[:id])
 
 end
-
+end
 
